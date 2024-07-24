@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation, HashRouter } from 'react-router-dom';
 
 import Loader from './common/Loader';
 import PageTitle from './components/PageTitle';
@@ -39,20 +39,17 @@ function App() {
     setTimeout(() => setLoading(false), 1000);
   }, []);
 
-
-
-
-
-
-  return (
-
+  const publicRoutes = (
     <Routes>
-
       <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<RestooAI />} />
+      <Route path="/" element={<RestooAI />} />
       <Route path="auth/signin" element={<SignIn />} />
       <Route path="auth/signup" element={<SignUp />} />
+    </Routes>
+  );
 
+  const privateRoutes = (
+    <Routes>
       <Route path="/onboarding" element={<Onbording1 />} />
       <Route path="/whatsappform" element={<WhatsAppForm />} />
       <Route path="/whatsapponboard" element={<WhatsAppOnboard />} />
@@ -110,18 +107,24 @@ function App() {
           </>
         }
       />
-      <Route path='/FeedbackAnalysis' element={
-        <>
-          <PageTitle title='' />
-          <FeedbackAnalysis />
-        </>
-      } />
-      <Route path='/EditFeedback' element={
-        <>
-          <PageTitle title='' />
-          <EditFeedBack />
-        </>
-      } />
+      <Route
+        path="/FeedbackAnalysis"
+        element={
+          <>
+            <PageTitle title="" />
+            <FeedbackAnalysis />
+          </>
+        }
+      />
+      <Route
+        path="/EditFeedback"
+        element={
+          <>
+            <PageTitle title="" />
+            <EditFeedBack />
+          </>
+        }
+      />
       <Route
         path="/EditMenu"
         element={
@@ -170,6 +173,13 @@ function App() {
     </Routes>
   );
 
+  return loading ? (
+    <Loader />
+  ) : (
+    <HashRouter>
+      {!token ? publicRoutes : privateRoutes}
+    </HashRouter>
+  );
 }
 
 export default App;
