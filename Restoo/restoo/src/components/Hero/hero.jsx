@@ -1,13 +1,11 @@
-
-
-import React ,{useContext} from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import images from './hero.js'; 
-import { MenuContext } from '../../context/menuContext.jsx'; 
+import React, { useContext } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import images from "./hero.js";
+import { MenuContext } from "../../context/menuContext.jsx";
 export default function Slider() {
-  const user = useContext(MenuContext)
+  const user = useContext(MenuContext);
   return (
     <div className="flex justify-center pt-3">
       <Swiper
@@ -16,14 +14,15 @@ export default function Slider() {
       >
         {images.map((image, index) => (
           <SwiperSlide key={index} className="relative">
-            <img src={image} alt={`Slide ${index + 1}`} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              
-            </div>
+            <img
+              src={image}
+              alt={`Slide ${index + 1}`}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 flex items-center justify-center"></div>
           </SwiperSlide>
         ))}
       </Swiper>
     </div>
   );
 }
-

@@ -3,9 +3,8 @@ import { foodItems } from "./menu";
 import { FaCircle, FaStar } from "react-icons/fa";
 import Orders from "./orders";
 import axios from "axios";
-import { MenuContext } from '../../context/menuContext.jsx';
+import { MenuContext } from "../../context/menuContext.jsx";
 const Cartmenu = () => {
-
   const user = useContext(MenuContext);
   console.log(user);
   console.log(user[1]._id);
@@ -34,21 +33,30 @@ const Cartmenu = () => {
 
   const createOrder = async (orderData, userId) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/order/', orderData);
+      const response = await axios.post(
+        "http://localhost:5000/api/order/",
+        orderData
+      );
       console.log(response.data);
       await sendMessage(response.data.data, userId); // Correcting the argument passed to sendMessage
     } catch (error) {
-      console.error('Error creating order:', error.response ? error.response.data : error.message);
+      console.error(
+        "Error creating order:",
+        error.response ? error.response.data : error.message
+      );
     }
   };
 
   const sendMessage = async (orderId, userId) => {
     try {
-      const res = await axios.post('http://localhost:5000/webhooks/', { order: orderId, client: userId });
+      const res = await axios.post("http://localhost:5000/webhooks/", {
+        order: orderId,
+        client: userId,
+      });
       setResponse(res.data);
     } catch (error) {
-      console.error('Error sending message:', error);
-      setResponse('Error sending message');
+      console.error("Error sending message:", error);
+      setResponse("Error sending message");
     }
   };
 
@@ -60,7 +68,7 @@ const Cartmenu = () => {
         quantity: 1, // Set the quantity as needed
       })),
       price: cart.reduce((total, product) => total + product.price, 0),
-      status: 'Pending',
+      status: "Pending",
       clientId: user[1]._id,
       orderDate: new Date(),
     };

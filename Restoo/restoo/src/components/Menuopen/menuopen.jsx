@@ -43,13 +43,21 @@ const MenuOpen = () => {
             </div>
           </div>
           <hr className="border border-zinc-300 my-2" />
-          <div className="text-lime-600 text-sm font-medium">Account Settings</div>
+          <div className="text-lime-600 text-sm font-medium">
+            Account Settings
+          </div>
           <hr className="border border-zinc-300 my-2" />
           <div className="flex items-center mt-4">
-            <img src={Profile} alt="Profile" className="w-7 h-7 rounded-full bg-zinc-300" />
+            <img
+              src={Profile}
+              alt="Profile"
+              className="w-7 h-7 rounded-full bg-zinc-300"
+            />
             <div className="ml-2">
               <div className="text-zinc-900 font-medium">Jay Pawar</div>
-              <div className="text-zinc-900 text-xs font-medium">6382467&30</div>
+              <div className="text-zinc-900 text-xs font-medium">
+                6382467&30
+              </div>
             </div>
           </div>
           <hr className="border border-zinc-300 my-2" />
@@ -70,7 +78,9 @@ const MenuOpen = () => {
           <div className="flex items-center mt-4">
             <img src={Address} alt="Address Book" className="w-4 h-4" />
             <div className="ml-2">
-              <div className="text-zinc-900 text-xs font-medium">Address Book</div>
+              <div className="text-zinc-900 text-xs font-medium">
+                Address Book
+              </div>
             </div>
           </div>
           <hr className="border border-zinc-300 my-2" />
