@@ -40,15 +40,18 @@ function App() {
   }, []);
 
   const publicRoutes = (
+
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<RestooAI />} />
       <Route path="auth/signin" element={<SignIn />} />
       <Route path="auth/signup" element={<SignUp />} />
     </Routes>
+
   );
 
   const privateRoutes = (
+
     <Routes>
       <Route path="/onboarding" element={<Onbording1 />} />
       <Route path="/whatsappform" element={<WhatsAppForm />} />
@@ -171,14 +174,17 @@ function App() {
         }
       />
     </Routes>
+
   );
 
   return loading ? (
     <Loader />
   ) : (
-    <HashRouter>
+    <>
+
       {!token ? publicRoutes : privateRoutes}
-    </HashRouter>
+    </>
+
   );
 }
 
