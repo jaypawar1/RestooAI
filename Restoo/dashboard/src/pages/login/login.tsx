@@ -53,7 +53,8 @@ function Login() {
     event.preventDefault();
     try {
       console.log(formData);
-      const response = await axios.post("http://localhost:5000/api/auth/login", formData);
+      const url =import.meta.env.VITE_SERVER_URL;
+      const response = await axios.post(`${url}/api/auth/login`, formData);
       console.log("Login successful:", response.data);
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);

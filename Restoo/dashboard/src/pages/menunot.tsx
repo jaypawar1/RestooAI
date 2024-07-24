@@ -6,8 +6,8 @@ const MenuNoti: React.FC = () => {
   const userId = '123'; // Replace with actual user ID
 
   useEffect(() => {
-    const serverUrl = import.meta.env.VITE_SERVER_URL;
-    const eventSource = new EventSource(`${serverUrl}/webhooks/sse`);
+    const url =import.meta.env.VITE_SERVER_URL;
+    const eventSource = new EventSource(`${url}/webhooks/sse`);
     
     eventSource.onmessage = (event) => {
       const data = JSON.parse(event.data);

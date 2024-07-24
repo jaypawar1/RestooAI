@@ -34,7 +34,8 @@ const QrGeneration: React.FC = () => {
   useEffect(() => {
     const fetchTables = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/table', {
+        const url =import.meta.env.VITE_SERVER_URL;
+        const response = await axios.get(`${url}/api/table`, {
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
@@ -55,8 +56,9 @@ const QrGeneration: React.FC = () => {
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+      const url =import.meta.env.VITE_SERVER_URL;
       const response = await axios.post(
-        'http://localhost:5000/api/table',
+        `${url}/api/table`,
         {
           sector: sectorName,
           shortName: shortName,
@@ -80,8 +82,9 @@ const QrGeneration: React.FC = () => {
   const handleNextClick = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     try {
+      const url =import.meta.env.VITE_SERVER_URL;
       const response = await axios.put(
-        'http://localhost:5000/api/table/',
+        `${url}/api/table/`,
         {
           tableId: selectTable,
           table_no: totalTables,

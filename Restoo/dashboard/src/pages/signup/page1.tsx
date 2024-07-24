@@ -62,7 +62,8 @@ const RestooAI: React.FC = () => {
   const handleSignUp = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const response = await axios.post<{ token: string }>("http://localhost:5000/api/auth/signup", formData);
+      const url =import.meta.env.VITE_SERVER_URL;
+      const response = await axios.post<{ token: string }>(`${url}/api/auth/signup`, formData);
       console.log("Signup successful:", response.data);
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);

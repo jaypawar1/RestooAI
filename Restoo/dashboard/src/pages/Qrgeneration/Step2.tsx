@@ -28,9 +28,9 @@ const Step2 = () => {
   useEffect(() => {
     async function getTable() {
       const token = localStorage.getItem('token');
+      const url =import.meta.env.VITE_SERVER_URL;
       try {
-      
-        const response = await axios.get(`http://localhost:5000/api/table/${id}`, {
+        const response = await axios.get(`${url}/api/table/${id}`, {
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ const Step2 = () => {
           },
         });
 
-        const res2 = await axios.get(`http://localhost:5000/api/business/`, {
+        const res2 = await axios.get(`${url}/api/business/`, {
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
