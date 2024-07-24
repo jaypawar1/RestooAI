@@ -44,12 +44,12 @@ function App() {
 
 
 
-  const privateRoutes = (
+  return (
 
     <Routes>
 
       <Route path="/login" element={<Login />} />
-      <Route path="/" element={<RestooAI />} />
+      <Route path="/signup" element={<RestooAI />} />
       <Route path="auth/signin" element={<SignIn />} />
       <Route path="auth/signup" element={<SignUp />} />
 
@@ -170,12 +170,6 @@ function App() {
     </Routes>
   );
 
-  return loading ? (
-    <Loader />
-  ) : (
-      { privateRoutes }
-
-    );
 }
 
 export default App;
