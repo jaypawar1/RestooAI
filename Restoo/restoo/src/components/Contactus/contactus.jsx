@@ -2,8 +2,8 @@ import React from "react";
 import Email from "../../../src/assets/contactus/mail.svg";
 import Phone from "../../../src/assets/contactus/phone.svg";
 import Location from "../../../src/assets/contactus/location.svg";
-import Instagram from "../../../src/assets/contactus/instagram.svg"
-import Facebook from "../../../src/assets/contactus/facebook.svg"
+import Instagram from "../../../src/assets/contactus/instagram.svg";
+import Facebook from "../../../src/assets/contactus/facebook.svg";
 const ContactUs = () => {
   return (
     <div className="flex flex-col ">
@@ -33,18 +33,13 @@ const ContactUs = () => {
       <span className="text-sm font-semibold mt-4">Follow Us:</span>
       <div className="flex items-center justify-center mt-2">
         <img src={Instagram} alt="Instagram" className="w-7 h-7" />
-        <h3 className="ml-2 text-gray-500 text-xs font-medium">
-          asdfghjkljsv
-        </h3>
+        <h3 className="ml-2 text-gray-500 text-xs font-medium">asdfghjkljsv</h3>
 
         <img src={Facebook} alt="Facebook" className="w-7 h-7 ml-10" />
-        <h3 className="ml-2 text-gray-500 text-xs font-medium">
-        asdfghjkljsv
-        </h3>
+        <h3 className="ml-2 text-gray-500 text-xs font-medium">asdfghjkljsv</h3>
       </div>
       <hr className="border border-zinc-300 my-3" />
     </div>
-    
   );
 };
 

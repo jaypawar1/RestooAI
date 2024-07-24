@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
 import { FaTrashAlt, FaCircle, FaStar } from "react-icons/fa";
-import { MenuContext } from '../../context/menuContext.jsx'; 
+import { MenuContext } from "../../context/menuContext.jsx";
 const Orders = ({ cart, totalAmount, onClose, onDelete, onConfirm }) => {
   const user = useContext(MenuContext);
 
-  const onOrder=async()=>{
+  const onOrder = async () => {
     console.log(cart);
-  }
+  };
   return (
-
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg p-4 w-96 shadow-lg max-h-3/4 overflow-y-auto">
         <h2 className="text-2xl font-bold mb-4">Your Orders</h2>
@@ -57,7 +56,6 @@ const Orders = ({ cart, totalAmount, onClose, onDelete, onConfirm }) => {
           ))}
         </div>
         <div className="flex justify-between items-center mt-4">
-          
           <button onClick={onClose} className="underline text-sm">
             Close
           </button>
@@ -69,7 +67,6 @@ const Orders = ({ cart, totalAmount, onClose, onDelete, onConfirm }) => {
           >
             Confirm and Place Order
           </button>
-          
         </div>
       </div>
     </div>

@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import images from './menu';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import { MenuContext } from '../../context/menuContext.jsx'; 
+import React, { useContext } from "react";
+import images from "./menu";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { MenuContext } from "../../context/menuContext.jsx";
 const Firstmenu = () => {
   const menu = useContext(MenuContext);
   return (
@@ -13,9 +13,9 @@ const Firstmenu = () => {
         spaceBetween={10}
         pagination={{ clickable: true }}
         breakpoints={{
-          '@0.75': { slidesPerView: 2, spaceBetween: 20 },
-          '@1.00': { slidesPerView: 3, spaceBetween: 40 },
-          '@1.50': { slidesPerView: 4, spaceBetween: 50 },
+          "@0.75": { slidesPerView: 2, spaceBetween: 20 },
+          "@1.00": { slidesPerView: 3, spaceBetween: 40 },
+          "@1.50": { slidesPerView: 4, spaceBetween: 50 },
         }}
         className="mySwiper"
       >
@@ -28,7 +28,7 @@ const Firstmenu = () => {
                 alt={item.label}
               />
               <div className="text-black text-sm font-medium ">
-              {item.label}
+                {item.label}
               </div>
             </div>
           </SwiperSlide>
