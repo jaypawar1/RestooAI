@@ -51,14 +51,15 @@ const WhatsAppForm: React.FC = () => {
     const token = localStorage.getItem("token");
 
     try {
-      const response = await axios.post("http://localhost:5000/api/business/", businessData, {
+      const url =import.meta.env.VITE_SERVER_URL;
+      const response = await axios.post(`${url}/api/business/`, businessData, {
         headers: {
           "Accept": "application/json",
           "Content-Type": "application/json",
           "Authorization": `${token}`,
         },
       });
-      const response2 = await axios.post("http://localhost:5000/api/business/project", { name: businessData.company }, {
+      const response2 = await axios.post(`${url}/api/business/project`, { name: businessData.company }, {
         headers: {
           "Accept": "application/json",
           "Content-Type": "application/json",
