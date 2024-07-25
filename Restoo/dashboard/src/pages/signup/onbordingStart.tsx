@@ -17,7 +17,6 @@ const RequirementItem: React.FC<Requirement & { onToggle: () => void }> = ({ ico
             className="form-checkbox h-5 w-5 text-[#4BC500]"
             readOnly
         />
-        {iconSrc && <img src={iconSrc} alt={altText} className="ml-3 h-6 w-6" />}
         <p className="ml-3 my-auto text-base font-medium leading-6 text-black">
             {description}
         </p>
@@ -36,8 +35,6 @@ const Onboarding1: React.FC = () => {
             completed: false,
         },
         {
-            iconSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/752e9280-839e-422d-ab0b-ba7f6f135fd6?apiKey=aa24bd8d60704a07990899bf4a9a0488&",
-            altText: "Facebook icon",
             description: "A verified Facebook Business Account.",
             completed: false,
         },
