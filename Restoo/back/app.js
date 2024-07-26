@@ -24,7 +24,7 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/business', require('./routes/business'));
 app.use('/api/table',require('./routes/table'));
 // app.use('/api/order',require('./routes/order'));
-app.use('/api/creteTemplet',require('./routes/tamplates'))
+app.use('/api/Templet',require('./routes/tamplates'))
 app.use('/api/menu',require('./routes/menu'))
 app.use('/webhooks',require('./routes/webhooks'))
 app.use("/api/user",require('./routes/user'))
