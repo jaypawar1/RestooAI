@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import BG from "./BG.svg"; // Ensure BG.svg is placed in the src folder or adjust the path accordingly
 
@@ -62,7 +62,7 @@ const RestooAI: React.FC = () => {
   const handleSignUp = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const url =import.meta.env.VITE_SERVER_URL;
+      const url = import.meta.env.VITE_SERVER_URL;
       const response = await axios.post<{ token: string }>(`${url}/api/auth/signup`, formData);
       console.log("Signup successful:", response.data);
       if (response.data.token) {
@@ -70,7 +70,7 @@ const RestooAI: React.FC = () => {
       }
       // Assuming successful signup response includes user data
       navigate("/onboarding");
-    } catch (error:any) {
+    } catch (error: any) {
       console.error("Error during signup:", error.response ? error.response.data : error.message);
     }
   };
@@ -116,6 +116,14 @@ const RestooAI: React.FC = () => {
                 >
                   Sign up today
                 </button>
+                <div className=" w-[100%] flex flex-col justify-center items-center">
+                  <div>
+                    or
+                  </div>
+                  <Link to="/login">
+                    Login
+                  </Link>
+                </div>
                 <p className="self-center mt-8 text-base leading-6 text-center text-blue-500 w-[300px]">
                   By clicking continue, you agree to our{" "}
                   <a href="#" className="text-blue-500 underline">
