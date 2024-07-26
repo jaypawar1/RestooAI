@@ -39,7 +39,7 @@ const WhatsAppForm: React.FC = () => {
   };
 
   const handleSubmit = async (event: FormEvent) => {
-   
+
     event.preventDefault();
     const businessData = {
       display_name: formData.name,
@@ -51,26 +51,44 @@ const WhatsAppForm: React.FC = () => {
     const token = localStorage.getItem("token");
 
     try {
-      const url =import.meta.env.VITE_SERVER_URL;
-      const response = await axios.post(`${url}/api/business/`, businessData, {
+      const url = import.meta.env.VITE_SERVER_URL;
+      const user = await axios.get(`${url}/api/user`, {
         headers: {
           "Accept": "application/json",
           "Content-Type": "application/json",
           "Authorization": `${token}`,
         },
-      });
-      const response2 = await axios.post(`${url}/api/business/project`, { name: businessData.company }, {
-        headers: {
-          "Accept": "application/json",
-          "Content-Type": "application/json",
-          "Authorization": `${token}`,
-        },
-      });
-      console.log("Business created successfully:", response2.data);
-      console.log("Business created successfully:", response.data);
+      })
+      if (!user.data.businessId) {
+        const response = await axios.post(`${url}/api/business/`, businessData, {
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "Authorization": `${token}`,
+          },
+        });
+        const response2 = await axios.post(`${url}/api/business/project`, { name: businessData.company }, {
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "Authorization": `${token}`,
+          },
+        });
+        console.log("Business created successfully:", response2.data);
+        console.log("Business created successfully:", response.data);
+      } else {
+        const response2 = await axios.post(`${url}/api/business/project`, { name: businessData.company }, {
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "Authorization": `${token}`,
+          },
+        });
+        console.log("Business created successfully:", response2.data);
+      }
       navigator("/whatsapponboard")
       // Handle the response as needed, e.g., store the business ID
-    } catch (error:any) {
+    } catch (error: any) {
       console.error("Error creating business:", error.response ? error.response.data : error.message);
     }
   };

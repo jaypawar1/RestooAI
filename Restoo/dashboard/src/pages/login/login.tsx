@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import BG from "../signup/BG.svg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from 'react-router-dom';
 import axios from "axios";
 
 interface FormData {
@@ -59,7 +59,7 @@ function Login() {
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);
       }
-      navigate("/onboarding");
+      navigate("/");
     } catch (error:any) {
       console.error("Error during login:", error.response ? error.response.data : error.message);
     }
@@ -107,7 +107,7 @@ function Login() {
                   </p>
                 </div>
                 <div className="self-center mt-8 text-base leading-6 text-center w-[300px]">
-                  <p>Don’t have account? <span className="text-blue-500 underline" onClick={() => navigate("/signup")}>Sign up</span></p>
+                  <p>Don’t have account? <span className="text-blue-500 underline"><Link to='/'> Sign up</Link></span></p>
                 </div>
               </form>
             </section>
