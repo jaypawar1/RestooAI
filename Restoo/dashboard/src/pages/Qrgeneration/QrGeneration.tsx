@@ -128,7 +128,7 @@ return (
 
 
 
-            <div className='flex flex-col gap-3'>
+            <div className='flex flex-col gap-2 -mt-3'>
               <div className='font-semibold  text-black'> Create your own section</div>
               <div className='grid grid-cols-3 gap-y-2 gap-x-3 w-fit'>
                 {tables && tables.length > 0 ? (
@@ -142,8 +142,8 @@ return (
                         setSelectTable(table._id);
                       }}
                     >
-                      <span className='text-xl text-black font-bold'>{table.shortName} :</span>
-                      <span className='text-black font-semibold'>{table.section}</span>
+                      <span className='  text-black font-bold'>{table.shortName} :</span>
+                      <span className='text-sm text-black font-normal'>{table.section}</span>
                     </div>
                   ))
                 ) : (
@@ -165,7 +165,7 @@ return (
                 </button>
               </div>
             </div>
-            <div className='flex flex-col '>
+            <div className='flex flex-col -mt-3'>
               <label className="mb-3 block font-semibold text-black dark:text-white">
                 Enter total number of tables
               </label>
