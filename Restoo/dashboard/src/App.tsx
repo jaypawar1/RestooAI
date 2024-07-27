@@ -15,6 +15,7 @@ import Tables from './pages/Tables';
 import Alerts from './pages/UiElements/Alerts';
 import Buttons from './pages/UiElements/Buttons';
 import Step2 from './pages/Qrgeneration/Step2';
+import Step3 from './pages/Qrgeneration/Step3';
 
 import RestooAI from './pages/signup/page1';
 import Onbording1 from './pages/signup/onbordingStart';
@@ -25,6 +26,7 @@ import FeedbackAnalysis from './pages/FeedBack/feedbackAnalysis';
 import EditFeedBack from './pages/FeedBack/editFeedBack';
 import MenuNoti from './pages/menunot';
 import EditMenu from './pages/EditMenu/editMenu';
+import MoreItemsPage from './pages/Qrgeneration/moreitems';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -80,6 +82,15 @@ function App() {
           <>
             <PageTitle title="QrGeneration | TailAdmin - Tailwind CSS Admin Dashboard Template" />
             <Step2 />
+          </>
+        }
+      />
+       <Route
+        path="/Step3/:id"
+        element={
+          <>
+            <PageTitle title="QrGeneration | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+            <Step3 />
           </>
         }
       />
@@ -170,6 +181,15 @@ function App() {
           <>
             <PageTitle title="Buttons | TailAdmin - Tailwind CSS Admin Dashboard Template" />
             <Buttons />
+          </>
+        }
+      />
+        <Route
+        path="/more-items"
+        element={
+          <>
+            <PageTitle title="Buttons | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+            <MoreItemsPage />
           </>
         }
       />
