@@ -105,37 +105,37 @@ const QrGeneration: React.FC = () => {
 return (
     <>
       <DefaultLayout>
-      <div className='mb-14'>
-        <h1 className=' text-black text-4xl font-extrabold mb-9'>
+      <div className='mb-5'>
+        <h1 className=' text-black text-3xl font-extrabold mb-4'>
           Hello! Let's Generate table <span className='text-[#4BC500]'>QR code</span> in 3 steps.
         </h1>
-        <div className='font-medium text-xl text-black'>Explanation text</div>
+        <div className='font-semibold text-lg text-black'>Explanation text</div>
       </div>
-      <div className='grid grid-cols-2 gap-10'>
+      <div className='grid grid-cols-2 gap-10 '>
         <div>
-          <div className='text-black text-2xl mb-7'>Step 1:</div>
+          <div className='text-black font-semibold mb-1 '>Step 1:</div>
           <form className='gap-y-8 flex flex-col'>
-            <div className='flex flex-col gap-4'>
-              <label className="mb-3 block font-medium text-2xl text-black dark:text-white">
+            <div className='flex flex-col '>
+              <label className="mb-3 block font-semibold text-black dark:text-white">
                 Enter Restaurant name
               </label>
               <input
                 type="text"
                 placeholder="Name"
-                className="w-[60%] rounded-lg border-[1.5px] border-primary bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:bg-form-input dark:text-white"
+                className="w-[70%] rounded-lg border border-slate-500 bg-transparent py-2 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:bg-form-input dark:text-white"
               />
             </div>
 
 
 
-            <div className='flex flex-col gap-4'>
-              <div className='font-medium text-2xl text-black'> Create your own section</div>
-              <div className='grid grid-cols-2 gap-y-6 gap-x-10 w-[50%]'>
+            <div className='flex flex-col gap-3'>
+              <div className='font-semibold  text-black'> Create your own section</div>
+              <div className='grid grid-cols-3 gap-y-2 gap-x-3 w-fit'>
                 {tables && tables.length > 0 ? (
                   tables.map((table, index) => (
                     <div
                       key={index}
-                      className={`border-2 rounded-xl w-full h-15 p-2 flex justify-center items-center ${selectTable === table._id ? 'border-blue-500' : 'border-[#4bc500]'
+                      className={`border-2 rounded-lg w-full h-10 p-3 flex justify-center items-center cursor-pointer ${selectTable === table._id ? 'border-blue-500' : 'border-[#4bc500]'
                         }`}
                       onClick={(e) => {
                         e.preventDefault();
@@ -150,7 +150,7 @@ return (
                   <div></div> // You can replace this with any placeholder or message you prefer
                 )}
                 <button
-                  className='border-2 rounded-xl border-[#4bc500] w-full h-15 flex items-center justify-around'
+                  className='border-2 rounded-xl border-[#4bc500] w-full h-10 flex items-center justify-around'
                   onClick={handleOpenPopup}
                 >
                   <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -165,8 +165,8 @@ return (
                 </button>
               </div>
             </div>
-            <div className='flex flex-col gap-4'>
-              <label className="mb-3 block font-medium text-2xl text-black dark:text-white">
+            <div className='flex flex-col '>
+              <label className="mb-3 block font-semibold text-black dark:text-white">
                 Enter total number of tables
               </label>
               <input
@@ -174,11 +174,11 @@ return (
                 placeholder="Ex : 23"
                 value={totalTables}
                 onChange={(e) => setTotalTables(e.target.value)}
-                className="w-[60%] rounded-lg border-[1.5px] border-primary bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:bg-form-input dark:text-white"
+                className="w-[70%] rounded-lg border border-slate-500 bg-transparent py-2 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:bg-form-input dark:text-white"
               />
             </div>
             <button
-              className='w-[190px] h-[40px] bg-[#4bc500] rounded-xl text-center text-white text-xl font-medium'
+              className='w-[190px] h-[40px] bg-[#4bc500] rounded-xl text-center items-center justify-center text-white text-xl font-medium'
               onClick={handleNextClick}
             >
               Next
