@@ -12,20 +12,13 @@ interface Table {
   Table_no: string[];
 }
 
-const Step2 = () => {
+const Step3 = () => {
   const canvasRef = useRef<HTMLDivElement>(null);
-  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-
+  const { id } = useParams<{ id: string }>();
   const [name, setName] = useState<string>('');
   const [phone, setPhone] = useState<string>('');
   const [table, setTable] = useState<Table | null>(null);
-  const [items, setItems] = useState<string[]>([
-    'Item 1: Description',
-    'Item 2: Description',
-    'Item 3: Description',
-    'Item 4: Description',
-  ]); 
 
   const qrValue = `https://wa.me/917709196986?text=Hello,%20I'd%20like%20to%20contact%20${name}%20regarding%20table%20${table?.Table_no[1]}`;
 
@@ -71,30 +64,6 @@ const Step2 = () => {
       });
     }
   };
-  const handleNextClick = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.preventDefault();
-    try {
-      const token = localStorage.getItem('token');
-      const url = import.meta.env.VITE_SERVER_URL;
-      const response = await axios.put(
-        `${url}/api/table/`,
-        {
-          tableId: id,
-          table_no: table?.Table_no,
-        },
-        {
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            Authorization: token!,
-          },
-        }
-      );
-      navigate(`/Step3/${id}`);
-    } catch (error) {
-      console.error('Error fetching tables:', error);
-    }
-  };
   const handleBackClick = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     try {
@@ -114,7 +83,7 @@ const Step2 = () => {
           },
         }
       );
-      navigate(`/QrGeneration`);
+      navigate(`/Step2/${id}`);
     } catch (error) {
       console.error('Error fetching tables:', error);
     }
@@ -128,32 +97,22 @@ const Step2 = () => {
             Hello! Let's Generate table{' '}
             <span className="text-[#4BC500]">QR code</span> in 3 steps.
           </h1>
-          <div className="font-semibold text-lg text-black">Explanation text</div>
+          <div className="font-semibold text-lg text-black">
+            Explanation text
+          </div>
         </div>
-        <Breadcrumb pageName="Step 2 :" />
+        <Breadcrumb pageName="Step 3 :" />
         <div className="flex flex-row justify-between items-start m-5">
           <div
             ref={canvasRef}
             className="inline-block p-6 text-center border border-gray-300"
           >
             <div className="text-2xl mb-2">{name}</div>
-            <QRCodeCanvas value={qrValue} size={156} className='ml-5'/>
-            <div className="text-xl mt-2">
-              {table?.Table_no[1]}
-            </div>
+            <QRCodeCanvas value={qrValue} size={156} className="ml-5" />
+            <div className="text-xl mt-2">{table?.Table_no[1]}</div>
           </div>
-          <div className="bg-slate-500 h-96 w-80"></div>
         </div>
-        <div className="-mt-6 flex flex-row gap-5">
-          {items.map((item, index) => (
-            <div
-              key={index}
-              className="px-2 py-20 border rounded-lg text-center bg-slate-500 text-white"
-            >
-              {item}
-            </div>
-          ))}
-        </div>
+
         <button
           onClick={downloadImage}
           className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
@@ -161,16 +120,10 @@ const Step2 = () => {
           Download QR Code
         </button>
         <div className="flex items-center gap-5 mt-6">
-          <button
-             onClick={handleBackClick}
-            className="px-9 py-3 bg-gray-500 border border-black text-black rounded"
-          >
+          <button onClick={handleBackClick} className="px-9 py-3 bg-gray-500 border border-black text-black rounded">
             Back
           </button>
-          <button
-            onClick={handleNextClick}
-            className="px-9 py-3 bg-green-500 text-white rounded"
-          >
+          <button className="px-9 py-3 bg-green-500 text-white rounded">
             Next
           </button>
         </div>
@@ -179,4 +132,4 @@ const Step2 = () => {
   );
 };
 
-export default Step2;
+export default Step3;
