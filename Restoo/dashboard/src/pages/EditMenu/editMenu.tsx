@@ -280,15 +280,14 @@ const EditMenu = () => {
             POS integration
           </button>
         </div>
-        <div className="text-lg  w-[60%]">
+        <div className="  w-[60%]">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum nemo,
           ratione omnis, quibusdam ea minima error, provident aperiam quam fuga
-          
         </div>
         <div className="w-[70%] mt-8 ">
           <div className="flex gap-4">
             <div className="flex flex-col w-[60%] ">
-              <label className="text-black font-semibold text-xl">
+              <label className="text-black font-semibold ">
                 Restaurant Name
               </label>
               <input
@@ -301,16 +300,14 @@ const EditMenu = () => {
                   setMenu(updatedMenu);
                 }}
                 placeholder="Titoes cafe and Bar ..."
-                className="rounded-lg border text-xl font-medium border-slate-400 h-12 py-2 px-3 mt-2"
+                className="rounded-lg border text-xl font-medium border-slate-400 h-10 py-2 px-3 mt-1"
               />
             </div>
             <div className="flex flex-col ">
-              <label className="text-black font-semibold text-xl">
-                Logo image
-              </label>
+              <label className="text-black font-semibold ">Logo image</label>
               <label
                 htmlFor="file-upload"
-                className="mt-2 first:custom-file-upload rounded-lg border border-slate-400 h-12 text-xl py-2 px-2 flex justify-between "
+                className="mt-1 first:custom-file-upload rounded-lg border border-slate-400 h-10 text-xl py-2 px-2 flex justify-between "
               >
                 <div className="text-xl"> Upload</div>
                 <div className=" m-auto items-end justify-end">
@@ -356,15 +353,15 @@ const EditMenu = () => {
           </div>
         </div>
         <div className="mt-5 w-[60%] ">
-          <label className="text-black font-semibold text-xl">
+          <label className="text-black font-semibold ">
             Restaurant Other Service
           </label>
-          <div className=" mt-4 grid grid-cols-3 gap-2">
+          <div className=" mt-1 grid grid-cols-3 ">
             {menu.services.map((service, index) => (
               <div
                 onClick={() => toggleServiceSelection(service.name)}
                 key={index}
-                className={`bg-[#BAE8B3]  text-black text-lg font-medium rounded-xl h-12 w-45 py-2 text-center col-span-1 shadow-2 drop-shadow-xl ${
+                className={`bg-[#BAE8B3]  text-black text-lg font-medium rounded-xl h-10 w-40 p-2 text-center col-span-1 cursor-pointer shadow-2 drop-shadow-xl ${
                   selectedServices.has(service.name)
                     ? 'bg-[#BAE8B3]'
                     : 'bg-white'
@@ -386,7 +383,7 @@ const EditMenu = () => {
                   }));
                 }
               }}
-              className=" text-black text-lg font-medium rounded-xl h-12 w-45 py-2 text-center col-span-1 shadow-2 drop-shadow-xl flex justify-between px-4 "
+              className=" text-black text-lg font-medium rounded-xl h-10 w-40 py-2 border cursor-pointer border-slate-300 text-center col-span-1 shadow-2 drop-shadow-xl flex justify-between px-4 "
             >
               <div>Add Other</div>
               <div className=" my-auto">
@@ -407,21 +404,21 @@ const EditMenu = () => {
           </div>
         </div>
         <div className="mt-5 w-[60%] ">
-          <label className="text-black font-semibold text-xl">
+          <label className="text-black font-semibold ">
             Create your item categories
           </label>
-          <div className=" mt-4 grid grid-cols-3 gap-2">
-            {menu.category.map((catagory, index) => (
+          <div className="mt-1 grid grid-cols-3 gap-1">
+            {menu.category.map((category, index) => (
               <div
                 key={index}
-                onClick={() => toggleCategorySelection(catagory.name)}
-                className={`bg-[#BAE8B3] text-black text-lg font-medium rounded-xl h-12 w-45 p-2 text-center col-span-1 shadow-2 drop-shadow-xl  ${
-                  selectedCategories.has(catagory.name)
-                    ? ' bg-[#BAE8B3]'
+                onClick={() => toggleCategorySelection(category.name)}
+                className={`text-black text-lg font-medium rounded-xl h-10 w-40 cursor-pointer p-2 text-center shadow-2 drop-shadow-xl flex items-center justify-center ${
+                  selectedCategories.has(category.name)
+                    ? 'bg-[#BAE8B3]'
                     : 'bg-white'
                 }`}
               >
-                {catagory.name}
+                {category.name}
               </div>
             ))}
             <div
@@ -439,10 +436,10 @@ const EditMenu = () => {
                   }));
                 }
               }}
-              className=" text-black text-lg font-medium rounded-xl h-12 w-45 py-2 text-center col-span-1 shadow-2 drop-shadow-xl flex justify-between px-4 "
+              className="text-black text-lg font-medium rounded-xl h-10 w-40 cursor-pointer p-2 border border-slate-300 text-center shadow-2 drop-shadow-xl flex items-center justify-between px-4 col-span-1"
             >
               <div>Add Other</div>
-              <div className=" my-auto">
+              <div className="flex items-center">
                 <svg
                   width="20"
                   height="20"
@@ -460,9 +457,7 @@ const EditMenu = () => {
           </div>
         </div>
         <div className="mt-5 w-[60%] ">
-          <label className="text-black font-semibold text-xl">
-            Add your Items
-          </label>
+          <label className="text-black font-semibold ">Add your Items</label>
           <div>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae cum
             vero earum reiciendis, praesentium numquam adipisci amet porro modi!
@@ -583,8 +578,8 @@ const EditMenu = () => {
                 </div>
               </div>
             ))}
-            <div className="flex flex-col w-[70%]  mt-4">
-              <label className="text-black font-semibold text-xl ">
+            <div className="flex flex-col w-[70%]  mt-3">
+              <label className="text-black font-semibold  ">
                 Restaurant address Google Maps link
               </label>
               <input
@@ -597,12 +592,12 @@ const EditMenu = () => {
                   setMenu(updatedMenu);
                 }}
                 placeholder="Titoes Cafe and Bar"
-                className="rounded-lg border text-lg font-medium border-black h-12 py-2 px-4 mb-3 "
+                className="rounded-lg border text-lg font-medium border-black h-10 py-2 px-4 mb-3 "
               />
             </div>
 
-            <div className="flex flex-col w-[70%] mt-4 ">
-              <label className="text-black font-semibold text-xl">
+            <div className="flex flex-col w-[70%] mt-2 ">
+              <label className="text-black font-semibold ">
                 Contact number
               </label>
               <input
@@ -615,13 +610,11 @@ const EditMenu = () => {
                   setMenu(updatedMenu);
                 }}
                 placeholder="Titoes cafe and Bar"
-                className="rounded-lg border text-xl font-medium border-black h-12 py-2 px-4 mb-3"
+                className="rounded-lg border text-xl font-medium border-black h-10 py-2 px-4 mb-3"
               />
             </div>
-            <div className="flex flex-col w-[70%] mt-4">
-              <label className="text-black font-semibold text-xl">
-                Email address
-              </label>
+            <div className="flex flex-col w-[70%] mt-2">
+              <label className="text-black font-semibold">Email address</label>
               <input
                 type="email"
                 value={menu.email}
@@ -632,11 +625,11 @@ const EditMenu = () => {
                   setMenu(updatedMenu);
                 }}
                 placeholder="Titoes cafe and Bar"
-                className="rounded-lg border text-xl font-medium border-black h-12 py-2 px-4 mb-3"
+                className="rounded-lg border text-xl font-medium border-black h-10 py-2 px-4 mb-3"
               />
             </div>
-            <div className="flex flex-col w-[70%] mt-4">
-              <label className="text-black font-semibold text-xl">
+            <div className="flex flex-col w-[70%] mt-2">
+              <label className="text-black font-semibold ">
                 Contact address
               </label>
               <input
@@ -649,11 +642,11 @@ const EditMenu = () => {
                   setMenu(updatedMenu);
                 }}
                 placeholder="Titoes cafe and Bar"
-                className="rounded-lg border text-xl font-medium border-black h-12 py-2 px-4 mb-3"
+                className="rounded-lg border text-xl font-medium border-black h-10 py-2 px-4 mb-3"
               />
             </div>
-            <div className="flex flex-col w-[70%] mt-4">
-              <label className="text-black font-semibold text-xl">
+            <div className="flex flex-col w-[70%] mt-2">
+              <label className="text-black font-semibold ">
                 Social media account
               </label>
               <input
@@ -666,14 +659,14 @@ const EditMenu = () => {
                   setMenu(updatedMenu);
                 }}
                 placeholder="Titoes cafe and Bar"
-                className="rounded-lg border text-xl font-medium border-black h-12 py-2 px-4 mb-3"
+                className="rounded-lg border text-xl font-medium border-black h-10 py-2 px-4 mb-3"
               />
             </div>
           </div>
         </div>
         <button
           onClick={() => handleCreateMenu(menu)}
-          className="text-white bg-[#4BC500] font-semibold px-6 py-2 text-lg rounded-xl mt-7 mx-20"
+          className="text-white bg-[#4BC500] font-semibold px-6 py-2 text-lg rounded-lg mt-7 mx-20"
         >
           Create Your Own Menu App
         </button>
