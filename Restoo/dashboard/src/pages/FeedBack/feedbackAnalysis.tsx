@@ -14,10 +14,14 @@ const FeedbackAnalysis = () => {
         <Breadcrumb pageName="Feedback Analysis" />
         <section>
           <div className="w-full flex justify-between">
-            <div className=" text-center">
-              {' '}
-              <input type="date" className="h-14 border w-54"></input>
-            </div>
+          <div className="flex justify-center">
+  <input 
+    type="date" 
+    className="h-12 border border-gray-300 rounded-lg w-[200px] px-4 text-center focus:outline-none focus:border-blue-500 transition duration-300 ease-in-out"
+    placeholder="Select a date"
+  />
+</div>
+
             <div>
               {' '}
               <NavLink
@@ -33,7 +37,7 @@ const FeedbackAnalysis = () => {
         <section className=" mt-5">
           <div className="flex justify-start gap-10">
             <div className=" flex gap-5  justify-start ">
-              <div className="flex justify-center items-center gap-8 bg-[#E3FFDE] px-4 py-4 rounded-lg border border-zinc-300 ">
+              <div className="flex justify-center items-center gap-4 bg-[#E3FFDE] px-5 py-6 rounded-lg border border-zinc-300">
                 <div>
                   <svg
                     width="50"
@@ -50,12 +54,12 @@ const FeedbackAnalysis = () => {
                 </div>
                 <div>
                   <div>Total Feedback</div>
-                  <div className="text-[#505050] text-4xl font-extrabold pt-3">
+                  <div className="text-[#505050] text-3xl font-extrabold pt-3">
                     14,790
                   </div>
                 </div>
               </div>
-              <div className="flex justify-center items-center gap-8 bg-[#E5EFFF] px-4 py-4 rounded-lg border border-zinc-300 ">
+              <div className="flex justify-center items-center gap-4 bg-[#E5EFFF] px-5 py-6 rounded-lg border border-zinc-300 ">
                 <div>
                   <svg
                     width="47"
@@ -79,7 +83,7 @@ const FeedbackAnalysis = () => {
               </div>
               
 
-              <div className="flex justify-center items-center gap-8 bg-[#F5EDFF] px-4 py-4 rounded-lg border border-zinc-300">
+              <div className="flex justify-center items-center gap-4 bg-[#F5EDFF] px-5 py-6 rounded-lg border border-zinc-300">
                 <div>
                   <svg
                     width="47"
@@ -96,15 +100,18 @@ const FeedbackAnalysis = () => {
                 </div>
                 <div>
                   <div>Avg. Feedback</div>
-                  <div className="text-[#505050] text-4xl font-extrabold pt-4">
+                  <div className="text-[#505050] text-3xl font-extrabold pt-4">
                     14,790
                   </div>
                 </div>
               </div>
+              
             </div>
 
-            <div className=" w-[400px] flex flex-col border border-zinc-400 rounded-xl px-8 py-5">
-              <div className=" text-xl text-black font-bold mb-5">
+           
+          </div>
+           {/* <div className=" w-[400px] flex flex-col border border-zinc-400 rounded-xl ">
+              <div className=" text-xl text-black font-bold mb-5 px-3">
                 Current Feedback
               </div>
               <div>
@@ -136,8 +143,7 @@ const FeedbackAnalysis = () => {
                   view all
                 </NavLink>
               </div>
-            </div>
-          </div>
+            </div> */}
         </section>
         <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
           <ChartFour />
