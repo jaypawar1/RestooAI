@@ -158,7 +158,7 @@ const QrGeneration: React.FC = () => {
                     <div></div> // You can replace this with any placeholder or message you prefer
                   )}
                   <button
-                    className="border-2 rounded-xl border-[#4bc500] w-full h-10 flex items-center justify-around"
+                    className=" rounded-xl  w-full h-10 flex items-center justify-around"
                     onClick={handleOpenPopup}
                   >
                     <svg
@@ -245,25 +245,26 @@ const QrGeneration: React.FC = () => {
 
         {isPopupOpen && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 ">
-            <div className="bg-white p-6 rounded-lg shadow-lg w-[30%] h-[50%]">
+            <div className="bg-white p-6 rounded-lg shadow-lg w-[30%] h-fit">
               <div className=" flex flex-col w-[100%]">
-                <div className="flex justify-end">
+                <div className="flex flex-row items-center justify-between">
+                <div className='text-xl font-semibold'>Create your own sections </div>
                   <button
                     onClick={handleClosePopup}
-                    className=" top-2 right-2 text-black"
+                    className="text-black font-bold"
                   >
                     X
                   </button>
                 </div>
-                <div>Create your own sections </div>
+                
               </div>
               <form
                 onSubmit={handleFormSubmit}
                 className="flex flex-col justify-center"
               >
-                <div className="flex flex-col gap-4">
-                  <label className="font-medium text-xl text-black">
-                    Enter Sector Name
+                <div className="flex flex-col gap-2">
+                  <label className="font-medium text-xl text-black mt-3">
+                    Enter Your Own Section Name
                   </label>
                   <input
                     type="text"
@@ -273,8 +274,8 @@ const QrGeneration: React.FC = () => {
                     className="w-full rounded-lg border-[1.5px] border-primary bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary"
                   />
                 </div>
-                <div className="flex flex-col gap-4 mt-4">
-                  <label className="font-medium text-xl text-black">
+                <div className="flex flex-col gap-2 ">
+                  <label className="font-medium text-xl text-black mt-5">
                     Enter Short Name
                   </label>
                   <input
@@ -288,7 +289,7 @@ const QrGeneration: React.FC = () => {
                 <div className="flex w-full justify-around">
                   <button
                     type="submit"
-                    className=" w-[30%] mt-6 py-3 bg-[#4bc500] rounded-xl text-center text-white text-xl font-medium"
+                    className=" w-full mt-6 py-3 bg-[#4bc500] rounded-xl text-center text-white text-xl font-medium"
                   >
                     Submit
                   </button>
